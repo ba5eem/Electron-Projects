@@ -3,7 +3,7 @@ const path = require('path');
 const url = require('url');
 const { app, BrowserWindow, Menu } = electron;
 const { ready, darwin, activate, windowOptions, windowUrlOptions } = require('./settings');
-const { menuTemplate, submenu } = require('./menus');
+const { windowMenu, helpMenu, subMenu, exit } = require('./menus');
 
 let mainWindow;
 
@@ -16,15 +16,41 @@ app.on(ready, () => {
   mainWindow.loadURL(url.format(windowUrlOptions));
   mainWindow.webContents.openDevTools();
 
-  const menu = Menu.buildFromTemplate(menuTemplate)
+  const menu = Menu.buildFromTemplate(appMenu)
   Menu.setApplicationMenu(menu)
 })
 
 
+
+
+
+const listMenu = {
+    label: 'List',
+    submenu: [
+      {
+        label: 'Add item'
+      },
+      {
+        label: 'Clear items'
+      },
+      {
+        label: 'Quit',
+        accelerator: process.platform == darwin ? exit[0] : exit[1],
+        click(){
+          app.quit();
+        }
+      }
+    ]
+  };
+
+
+
+const appMenu = [listMenu, windowMenu,helpMenu]
+
 if (process.platform === 'darwin') {
-  menuTemplate.unshift({
+  appMenu.unshift({
     label: app.getName(),
-    submenu: submenu
+    submenu: subMenu
   })
 }
 

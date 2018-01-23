@@ -5,6 +5,9 @@ const { app, BrowserWindow, Menu } = electron;
 const { ready, darwin, activate, windowOptions, windowUrlOptions } = require('./settings');
 
 
+
+
+
 //handle create add window:
 
 
@@ -30,23 +33,7 @@ const helpMenu = {
     ]
   }
 
-const listMenu = {
-    label: 'List',
-    submenu: [
-      {
-        label: 'Add item'
-      },
-      {label: 'Clear items'},
-      {
-        label: 'Quit',
-        accelerator: process.platform == darwin ? exit[0] : exit[1],
-        click(){
-          app.quit();
-        }
-      }
-    ]
-  };
-const submenu = [
+const subMenu = [
       {role: 'about'},
       {type: 'separator'},
       {role: 'services', submenu: []},
@@ -58,7 +45,6 @@ const submenu = [
       {role: 'quit'}
     ]
 
-const menuTemplate = [listMenu,windowMenu,helpMenu]
 
 
-module.exports = { menuTemplate, submenu };
+module.exports = { windowMenu, helpMenu, subMenu, exit };
