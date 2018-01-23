@@ -8,12 +8,7 @@ const { ready, darwin, activate, windowOptions, windowUrlOptions } = require('./
 
 
 
-//handle create add window:
-
-
-
-
-const exit = ['Command+Q', 'Ctrl+Q'];
+const exit = {mac: 'Command+Q', win: 'Ctrl+Q' }
 
 const windowMenu = {
     role: 'window',
