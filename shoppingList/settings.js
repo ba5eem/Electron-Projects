@@ -11,13 +11,14 @@ const winAllClosed = 'window-all-closed';
 const darwin = 'darwin';
 const activate = 'activate';
 const file = 'file:';
+const production = 'production';
 
 const mainWindowHtmlSrc = './Views/mainWindow.html';
 const addItemWindowHtmlSrc = './Views/addItemWindow.html';
 
 
 
-const addWindowOptions = {width: 200, height: 300, title: 'Add Shopping List Item'};
+const addWindowOptions = {width: 300, height: 200, title: 'Add Shopping List Item'};
 
 const mainWindowHTML = {
     pathname: path.join(__dirname, mainWindowHtmlSrc),
@@ -37,4 +38,4 @@ const addItemWindowHTML = {
 
 
 
-module.exports = { closed, ready, winAllClosed, darwin, activate, addWindowOptions, mainWindowHTML, addItemWindowHTML };
+module.exports = { closed, ready, winAllClosed, darwin, activate, addWindowOptions, mainWindowHTML, addItemWindowHTML, production };

@@ -7,8 +7,9 @@ const { ready, darwin, activate, windowOptions, windowUrlOptions } = require('./
 
 
 
-
+// ShortCuts
 const exit = {mac: 'Command+Q', win: 'Ctrl+Q' }
+const dev = {mac: 'Command+I', win: 'Ctrl+I' }
 
 const windowMenu = {
     role: 'window',
@@ -42,4 +43,4 @@ const subMenu = [
 
 
 
-module.exports = { windowMenu, helpMenu, subMenu, exit };
+module.exports = { windowMenu, helpMenu, subMenu, exit, dev };
