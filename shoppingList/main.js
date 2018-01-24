@@ -69,7 +69,7 @@ const addItem = {
 const clearItems = {
         label: 'Clear items',
         click(){
-          console.log('clear Items');
+          mainWindow.webContents.send('item:clear');
         }
       };
 const quitApp = {

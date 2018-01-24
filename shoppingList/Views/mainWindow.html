@@ -3,33 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Shopping List</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
 </head>
 <body>
   
-  <div class="container">
-    <h1> Shopping List </h1>
-    <ul>
-    </ul>
-  </div>
+  <nav>
+    <div class="nav-wrapper">
+      <a  class="brand-logo center">Shopping List</a>
+    </div>
+  </nav>
+  <ul>
+
+  </ul>
 
 
-<script>
-  const electron = require('electron');
-  const { ipcRenderer } =  electron;
-  const ul = document.querySelector('ul');
-
-  ipcRenderer.on('item:add', (e, item) => {
-    const li = document.createElement('li');
-    const itemText = document.createTextNode(item);
-    li.appendChild(itemText);
-    ul.appendChild(li);
-  })
-
-
-</script>
-
-
+<script src="../Scripts/mainWindow.js"></script> 
 
 </body>
 </html>
