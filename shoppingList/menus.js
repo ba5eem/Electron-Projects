@@ -2,7 +2,6 @@ const path = require('path');
 const url = require('url');
 const electron = require('electron');
 const { app, BrowserWindow, Menu } = electron;
-const { ready, darwin, activate, windowOptions, windowUrlOptions } = require('./settings');
 
 
 
@@ -18,34 +17,34 @@ const shortCut = {
 
 
 const windowMenu = {
-    role: 'window',
-    submenu: [
-      {role: 'minimize'},
-      {role: 'close'}
-    ]
-  }
+  role: 'window',
+  submenu: [
+    {role: 'minimize'},
+    {role: 'close'}
+  ]
+}
 
 const helpMenu = {
-    role: 'help',
-    submenu: [
-      {
-        label: 'Learn More',
-        click () { electron.shell.openExternal('http://baseem.me') }
-      }
-    ]
-  }
+  role: 'help',
+  submenu: [
+    {
+      label: 'Learn More',
+      click () { electron.shell.openExternal('http://baseem.me') }
+    }
+  ]
+}
 
 const subMenu = [
-      {role: 'about'},
-      {type: 'separator'},
-      {role: 'services', submenu: []},
-      {type: 'separator'},
-      {role: 'hide'},
-      {role: 'hideothers'},
-      {role: 'unhide'},
-      {type: 'separator'},
-      {role: 'quit'}
-    ]
+    {role: 'about'},
+    {type: 'separator'},
+    {role: 'services', submenu: []},
+    {type: 'separator'},
+    {role: 'hide'},
+    {role: 'hideothers'},
+    {role: 'unhide'},
+    {type: 'separator'},
+    {role: 'quit'}
+  ]
 
 const menus = {
   windowMenu: windowMenu,
