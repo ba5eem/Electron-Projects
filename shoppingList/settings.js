@@ -6,6 +6,7 @@ const { app, BrowserWindow, Menu } = electron;
 let iconSrc = __dirname+'/img/icon.png';
 
 const closed = 'closed';
+const close = 'close';
 const ready = 'ready';
 const winAllClosed = 'window-all-closed';
 const darwin = 'darwin';
@@ -13,10 +14,24 @@ const activate = 'activate';
 const file = 'file:';
 const production = 'production';
 
+const currentOS = process.platform === darwin;
+const currentENV = process.env.NODE_ENV !== production;
+
+const status = {
+  closed: closed,
+  close: close,
+  ready: ready,
+  winAllClosed: winAllClosed,
+  darwin: darwin, 
+  activate: activate, 
+  file: file,
+  production: production,
+  currentOS: currentOS,
+  currentENV: currentENV
+}
+
 const mainWindowHtmlSrc = './Views/mainWindow.html';
 const addItemWindowHtmlSrc = './Views/addItemWindow.html';
-
-
 
 const addWindowOptions = {width: 300, height: 200, title: 'Add Shopping List Item'};
 
@@ -32,10 +47,16 @@ const addItemWindowHTML = {
     slashes: true
   };
 
+const options = {
+  mainView: mainWindowHTML,
+  addView: addItemWindowHTML,
+  addViewSize: addWindowOptions
+}
 
 
 
 
 
 
-module.exports = { closed, ready, winAllClosed, darwin, activate, addWindowOptions, mainWindowHTML, addItemWindowHTML, production };
+
+module.exports = { status, options };

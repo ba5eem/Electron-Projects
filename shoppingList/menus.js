@@ -8,8 +8,14 @@ const { ready, darwin, activate, windowOptions, windowUrlOptions } = require('./
 
 
 // ShortCuts
-const exit = {mac: 'Command+Q', win: 'Ctrl+Q' }
-const dev = {mac: 'Command+I', win: 'Ctrl+I' }
+const shortCut = {
+  exit:  {mac: 'Command+Q', win: 'Ctrl+Q' },
+  dev:   {mac: 'Command+I', win: 'Ctrl+I' },
+  add:   {mac: 'Command+N', win: 'Ctrl+N'},
+  clear: {mac: 'Command+X', win: 'Ctrl+X'}
+}
+
+
 
 const windowMenu = {
     role: 'window',
@@ -24,7 +30,7 @@ const helpMenu = {
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electron.atom.io') }
+        click () { electron.shell.openExternal('http://baseem.me') }
       }
     ]
   }
@@ -41,6 +47,12 @@ const subMenu = [
       {role: 'quit'}
     ]
 
+const menus = {
+  windowMenu: windowMenu,
+  helpMenu: helpMenu,
+  subMenu: subMenu
+}
 
 
-module.exports = { windowMenu, helpMenu, subMenu, exit, dev };
+
+module.exports = { menus, shortCut };
