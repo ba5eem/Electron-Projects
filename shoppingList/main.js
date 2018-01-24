@@ -18,6 +18,10 @@ const {
   exit, 
   dev } = require('./menus');
 
+// SET ENV
+
+process.env.NODE_ENV = production;
+
 let mainWindow;
 let addWindow;
 
